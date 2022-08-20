@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      logo: ['DynaPuff', 'sans-serif'],
+    },
   },
   plugins: [require('daisyui')],
   daisyui: {
