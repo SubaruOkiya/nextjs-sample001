@@ -17,20 +17,27 @@ export default function Swiper(props: PropsSwiper) {
       pagination={{ clickable: true }}
       mousewheel={{ forceToAxis: true }}
       autoplay={{
-        delay: 2500,
+        delay: 250000,
         disableOnInteraction: false,
       }}
     >
       {props.imagePaths.map((path, index) => {
         return (
           <SwiperSlide key={index}>
-            <div className="h-screen">
+            <div className="h-screen relative">
               <Image
                 src={path}
                 className="w-full"
                 layout="fill"
                 objectFit="cover"
               />
+              <div className="flex justify-centr align-middle z-10 w-full h-full absolute">
+                <p className="text-5xl text-white m-auto">
+                  いろんなことを試す
+                  <br />
+                  サンプルホームページ
+                </p>
+              </div>
             </div>
           </SwiperSlide>
         )

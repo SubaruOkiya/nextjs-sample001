@@ -1,13 +1,14 @@
 import { useEffect } from 'react'
-import Navbar from '../components/organisms/common/navbar'
-import SiteLogo from '../components/organisms/common/siteLogo'
+import { useInView } from 'react-intersection-observer'
 import Swiper from '../components/organisms/common/swiper'
 import ScrollSample from '../components/organisms/sample/scrollSample'
 import Spinner from '../components/atoms/animations/spinner'
 import { useBooleanState } from '../lib/hooks/common/contexts'
+import HomePageNavbar from '../components/organisms/common/homePageNavbar'
 
 export default function Index() {
   const { value: loaded, changeValue: changeLoaded } = useBooleanState(false)
+  const { ref, inView } = useInView({ threshold: 0.1 })
 
   useEffect(() => {
     changeLoaded(true)
@@ -21,9 +22,9 @@ export default function Index() {
       {loaded ? (
         <div className="min-h-screen bg-gray-800">
           <div className="w-full fixed top-0 z-50 text-white">
-            <Navbar siteLog={<SiteLogo />} pathHome={'#'} />
+            <HomePageNavbar isFloat={!inView} />
           </div>
-          <div className="w-screen">
+          <div className="w-screen" ref={ref}>
             <Swiper
               imagePaths={[
                 '/gatewood.jpg',
@@ -32,9 +33,11 @@ export default function Index() {
               ]}
             />
           </div>
-          {arr.map((key) => (
-            <ScrollSample key={key} />
-          ))}
+          <div>
+            {arr.map((key) => (
+              <ScrollSample key={key} />
+            ))}
+          </div>
         </div>
       ) : (
         <Spinner />
