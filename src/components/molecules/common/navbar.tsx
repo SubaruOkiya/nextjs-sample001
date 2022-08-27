@@ -10,9 +10,9 @@ type PropsNavbar = {
 export default function Navbar(props: PropsNavbar) {
   return (
     <div
-      className={`navbar rounded-xl bg-white ${
-        props.isFloat ? 'shadow-md bg-opacity-40' : 'bg-opacity-0'
-      } `}
+      className={`navbar rounded-xl bg-white text-gray-600 ${
+        props.isFloat ? 'shadow-md bg-opacity-70' : 'bg-opacity-0'
+      } duration-1000`}
     >
       <div className="flex-1 ml-2">
         <A href={props.pathHome}>{props.siteLog}</A>

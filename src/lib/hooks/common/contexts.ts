@@ -49,9 +49,9 @@ export const defaultArrayContext = {
 export const useBooleanState = (defaultValue: boolean): BooleanTheme => {
   const [value, cv] = useState(defaultValue)
 
-  const changeValue = useCallback((v): void => {
+  const changeValue = useCallback((v: boolean): void => {
     cv(v)
-  }, [])
+  }, []) as Dispatch<SetStateAction<boolean>>
 
   return { value, changeValue }
 }
@@ -59,9 +59,9 @@ export const useBooleanState = (defaultValue: boolean): BooleanTheme => {
 export const useStringState = (defaultValue: string): StringTheme => {
   const [value, cv] = useState(defaultValue)
 
-  const changeValue = useCallback((v) => {
+  const changeValue = useCallback((v: string) => {
     cv(v)
-  }, [])
+  }, []) as Dispatch<SetStateAction<string>>
 
   return { value, changeValue }
 }
@@ -69,9 +69,9 @@ export const useStringState = (defaultValue: string): StringTheme => {
 export const useNumberState = (defaultValue: number): NumberTheme => {
   const [value, cv] = useState(defaultValue)
 
-  const changeValue = useCallback((v) => {
+  const changeValue = useCallback((v: number) => {
     cv(v)
-  }, [])
+  }, []) as Dispatch<SetStateAction<number>>
 
   return { value, changeValue }
 }
@@ -79,9 +79,9 @@ export const useNumberState = (defaultValue: number): NumberTheme => {
 export function useArrayState<T>(defaultValue: T[]): ArrayTheme<T> {
   const [value, cv] = useState(defaultValue)
 
-  const changeValue = useCallback((v) => {
+  const changeValue = useCallback((v: T[]) => {
     cv(v)
-  }, [])
+  }, []) as Dispatch<SetStateAction<T[]>>
 
   return { value, changeValue }
 }
