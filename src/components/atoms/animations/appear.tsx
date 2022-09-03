@@ -12,7 +12,7 @@ export default function AppearAnimation(props: PropsAppearAnimation) {
     <div ref={ref}>
       <div
         className={`${
-          inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-28'
+          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-28'
         } duration-[1s]`}
       >
         {props.children}
