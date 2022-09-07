@@ -20,7 +20,12 @@ const ImageFirstLoad = memo(function ImageFirstLoad(
   }
 
   return (
-    <Image {...props} loading="eager" onLoadingComplete={onLoadingComplete} />
+    <Image
+      {...props}
+      loading="eager"
+      onLoadingComplete={onLoadingComplete}
+      alt={props.src}
+    />
   )
 })
 

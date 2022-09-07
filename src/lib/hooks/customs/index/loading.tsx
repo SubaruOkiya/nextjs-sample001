@@ -10,6 +10,7 @@ export default function useIndexLoading() {
 
   useEffect(() => {
     if (loadingRate === 1) changeLoaded(true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loadingRate])
 
   return { ref, inView, loaded, loadingRate, dispatch }
