@@ -1,6 +1,8 @@
 import { MouseEvent } from 'react'
 import { FaCompressArrowsAlt, FaExpandArrowsAlt } from 'react-icons/fa'
 import { useBooleanState } from '../../../lib/hooks/common/contexts'
+import { H2 } from '../../atoms/tags/h'
+import ContactMessages from './contactMessages'
 
 const str = '問い合わせフォーム'
 
@@ -23,15 +25,21 @@ export default function ContactForm(props: PropsContactForm) {
           props.isDisplay
             ? isOpen
               ? 'translate-x-0'
-              : 'translate-x-96'
-            : 'translate-x-96'
+              : 'translate-x-[150%]'
+            : 'translate-x-[150%]'
         } duration-[2s]`}
       >
         <div className="bg-white rounded-xl shadow-2xl shadow-black p-3">
           <div className="flex justify-end">
             <FaCompressArrowsAlt size={20} onClick={onClickToggle} />
           </div>
-          <div className="w-64 p-4">問い合わせフォーム</div>
+          <div className="p-2">
+            <H2>問い合わせフォーム</H2>
+            <div className="w-96 h-72 my-2 p-2 border border-gray-500 shadow-inner shadow-gray-400 overflow-scroll">
+              <ContactMessages active={isOpen} />
+            </div>
+            {/* <input className="py-2 px-5 my-2 border border-blue-400 shadow-inner shadow-blue-300 w-full rounded-md" /> */}
+          </div>
         </div>
       </div>
       <div

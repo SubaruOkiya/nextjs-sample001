@@ -10,6 +10,7 @@ import CircleDiv from '../components/atoms/divs/circleDiv'
 import { H1 } from '../components/atoms/tags/h'
 import AppearAnimation from '../components/atoms/animations/appear'
 import DnD from '../components/organisms/sample/dnd'
+import BounceCircleDiv from '../components/organisms/index/bounceCircleDiv'
 
 export default function Index() {
   const { ref, inView, loaded, loadingRate, dispatch } = useIndexLoading()
@@ -33,50 +34,20 @@ export default function Index() {
           <AppearAnimation>
             <div className="w-full mx-auto">
               <div className="my-10">
-                <H1>
-                  <div className="w-full text-center">
+                <div className="w-full text-center">
+                  <H1>
                     <span className="text-blue-500">実績</span>
-                  </div>
-                </H1>
+                  </H1>
+                </div>
               </div>
               <div className="flex justify-around">
-                <BounceAnimation>
-                  <CircleDiv>
-                    <div className="h-24 w-24 flex flex-col justify-center">
-                      <p className="text-center text-xl">見える化</p>
-                    </div>
-                  </CircleDiv>
-                </BounceAnimation>
-                <BounceAnimation>
-                  <CircleDiv>
-                    <div className="h-24 w-24 flex flex-col justify-center">
-                      <p className="text-center text-xl">クラウド</p>
-                    </div>
-                  </CircleDiv>
-                </BounceAnimation>
-                <BounceAnimation>
-                  <CircleDiv>
-                    <div className="h-24 w-24 flex flex-col justify-center">
-                      <p className="text-center text-xl">アプリ</p>
-                    </div>
-                  </CircleDiv>
-                </BounceAnimation>
+                <BounceCircleDiv>見える化</BounceCircleDiv>
+                <BounceCircleDiv>クラウド</BounceCircleDiv>
+                <BounceCircleDiv>アプリ</BounceCircleDiv>
               </div>
               <div className="flex justify-evenly">
-                <BounceAnimation>
-                  <CircleDiv>
-                    <div className="h-24 w-24 flex flex-col justify-center">
-                      <p className="text-center text-xl">スケジューラ</p>
-                    </div>
-                  </CircleDiv>
-                </BounceAnimation>
-                <BounceAnimation>
-                  <CircleDiv>
-                    <div className="h-24 w-24 flex flex-col justify-center">
-                      <p className="text-center text-xl">RTM</p>
-                    </div>
-                  </CircleDiv>
-                </BounceAnimation>
+                <BounceCircleDiv>スケジューラ</BounceCircleDiv>
+                <BounceCircleDiv>データ収集</BounceCircleDiv>
               </div>
             </div>
           </AppearAnimation>
