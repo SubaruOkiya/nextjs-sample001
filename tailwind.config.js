@@ -5,9 +5,12 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
-    fontFamily: {
-      logo: ['DynaPuff', 'sans-serif'],
+    extend: {
+      fontFamily: {
+        logo: ['DynaPuff', 'sans-serif'],
+        abril: ['Abril Fatface', 'sans-serif'],
+        cabin: ['Cabin Sketch', 'sans-serif'],
+      },
     },
   },
   plugins: [require('daisyui')],

@@ -3,17 +3,22 @@ import SlideContent from '../common/slideContent'
 
 const IMAGE_PATH = '/laptop-1205256.jpg'
 
-export default function SlideWelcome() {
+type PropsSlideWelcome = {
+  image: string
+  children: JSX.Element
+}
+
+export default function SlideWelcome(props: PropsSlideWelcome) {
   return (
     <div className="h-screen relative">
       <ImageFirstLoad
-        src={IMAGE_PATH}
+        src={props.image}
         className="w-full"
         layout="fill"
         objectFit="cover"
       />
       <div className="flex items-center z-10 w-full h-full absolute">
-        <SlideContent />
+        {props.children}
       </div>
     </div>
   )

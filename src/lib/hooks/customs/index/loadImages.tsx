@@ -1,4 +1,5 @@
 import { createContext, Dispatch, useReducer } from 'react'
+import { SWIPER_IMAGE_PATHS } from '../../../constant/paths'
 
 type LoadingStatus = 'loading' | 'complete'
 type ActionType =
@@ -35,11 +36,9 @@ const reducer = (value: State, action: ActionType): State => {
 }
 
 const initialState: State = {
-  images: [
-    { imagePath: '/laptop-1205256.jpg', status: 'loading' },
-    { imagePath: '/crowncat134.jpg', status: 'loading' },
-    { imagePath: '/sakiphotoPAR538501089.jpg', status: 'loading' },
-  ],
+  images: SWIPER_IMAGE_PATHS.map((path) => {
+    return { imagePath: path, status: 'loading' }
+  }),
   loadRate: 0,
 }
 

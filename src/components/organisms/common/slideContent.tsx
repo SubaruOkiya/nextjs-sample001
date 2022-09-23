@@ -1,17 +1,28 @@
+import { useSprings, animated, config } from 'react-spring'
+
 export default function SlideContent() {
+  const msg = 'Welcome to Homepage!'
+  const [springs, set] = useSprings(msg.length, (idx) => ({
+    // idxによって異なる設定をしてもよい。
+    config: config.wobbly,
+    fontSize: '48pt',
+  }))
   return (
-    <>
-      <div className="card w-64 mx-16 bg-white align-middle shadow-2xl">
-        <div className="card-body">
-          <h2 className="card-title">ようこそ</h2>
-          <form>
-            <label className="label">名前</label>
-            <input type="text" className="input input-primary" />
-            <label className="label">問い合わせ内容</label>
-            <input type="text" className="input input-primary" />
-          </form>
-        </div>
-      </div>
-    </>
+    <div className="w-full text-center font-cabin text-white ">
+      {springs.map((item, idx) => (
+        <animated.span
+          key={idx}
+          onMouseEnter={(e) =>
+            set((i) => (i === idx ? { fontSize: '60pt' } : {}))
+          }
+          onMouseLeave={(e) =>
+            set((i) => (i === idx ? { fontSize: '48pt' } : {}))
+          }
+          style={{ verticalAlign: 'top', ...item }}
+        >
+          {msg[idx]}
+        </animated.span>
+      ))}
+    </div>
   )
 }

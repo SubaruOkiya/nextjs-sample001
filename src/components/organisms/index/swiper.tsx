@@ -1,21 +1,25 @@
+import { SWIPER_IMAGE_PATHS } from '../../../lib/constant/paths'
 import Swiper from '../../molecules/common/swiper'
+import SlideContent from '../common/slideContent'
 import SlideWelcome from '../swiperSlides/welcome'
-import SlideWelcome2 from '../swiperSlides/welcome2'
-import SlideWelcome3 from '../swiperSlides/welcome3'
 
 type PropsIndexPageSwiper = {
   auto: boolean
 }
 
+export const SWIPER_CONTENTS = SWIPER_IMAGE_PATHS.map((path) => {
+  return { image: path, content: <SlideContent /> }
+})
+
 export default function IndexPageSwiper(props: PropsIndexPageSwiper) {
   return (
     <Swiper
       auto={props.auto}
-      slides={[
-        <SlideWelcome key={0} />,
-        <SlideWelcome2 key={1} />,
-        <SlideWelcome3 key={2} />,
-      ]}
+      slides={SWIPER_CONTENTS.map((value, index) => (
+        <SlideWelcome key={index} image={value.image}>
+          {value.content}
+        </SlideWelcome>
+      ))}
     />
   )
 }
