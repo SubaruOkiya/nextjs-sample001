@@ -6,6 +6,9 @@ import {
   useModalsState,
 } from '../../../lib/hooks/customs/common/modalsState'
 import Modal from '../../molecules/common/modal'
+import Info1 from './modals/info1'
+import Info2 from './modals/info2'
+import Info3 from './modals/info3'
 
 type PropsModals = {
   children: React.ReactNode
@@ -30,7 +33,7 @@ export default function Modals(props: PropsModals) {
           dispatches.info1({ type: 'hidden' })
         }}
       >
-        <div className="w-64 h-64 p-10">info1</div>
+        <Info1 />
       </Modal>
 
       <Modal
@@ -39,7 +42,7 @@ export default function Modals(props: PropsModals) {
           dispatches.info2({ type: 'hidden' })
         }}
       >
-        <div className="w-64 h-64 p-10">info2</div>
+        <Info2 />
       </Modal>
 
       <Modal
@@ -48,7 +51,7 @@ export default function Modals(props: PropsModals) {
           dispatches.info3({ type: 'hidden' })
         }}
       >
-        <div className="w-64 h-64 p-10">info3</div>
+        <Info3 />
       </Modal>
 
       {props.children}
